@@ -1,0 +1,46 @@
+name:                robot
+version:             0.1.0.0
+synopsis:            Initial project template from stack
+description:         Please see README.md
+homepage:            https://github.com/githubuser/robot#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Ivan Dudanov
+maintainer:          ivan@dudanov.com
+copyright:           2017 Ivan Dudanov
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Robot
+  build-depends:       base >= 4.9 && < 5
+                       ,mtl >= 2.1.2
+  default-language:    Haskell2010
+
+executable robot-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , robot
+                     , mtl >= 2.1.2
+  default-language:    Haskell2010
+
+test-suite robot-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      src, test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , robot
+                     , mtl >= 2.1.2
+                     , hspec
+                     , QuickCheck
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/githubuser/robot
